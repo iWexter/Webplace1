@@ -1,34 +1,4 @@
-<?php
-$connectstr_dbhost = '';
-$connectstr_dbname = '';
-$connectstr_dbusername = '';
-$connectstr_dbpassword = '';
 
-foreach ($_SERVER as $key => $value) {
-    if (strpos($key, "MYSQLCONNSTR_localdb")== 0) {
-        continuar;
-    }
-    
-    $connectstr_dbhost = preg_replace ("/^.* Fuente de datos = (. +?);. * $ /", "\\ 1", $value);
-    $connectstr_dbname = preg_replace ("/^.* Database = (. +?);. * $ /", "\\ 1", $value);
-    $connectstr_dbusername = preg_replace ("/^.* User Id = (. +?);. * $ /", "\\ 1", $value);
-    $connectstr_dbpassword = preg_replace ("/^.* Contraseña = (. +?) $ /", "\\ 1", $valor);
-}
-
-$link = mysqli_connect ($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
-
-if (!$link) {
-    echo "Error: no se puede conectar a MySQL". PHP_EOL;
-    echo "Depuración errno:". mysqli_connect_errno (). PHP_EOL;
-    echo "Error de depuración:". mysqli_connect_error (). PHP_EOL;
-    salida;
-}
-
-echo "Éxito: ¡se realizó una conexión adecuada con MySQL! La base de datos my_db es excelente". PHP_EOL;
-echo "Información del host:". mysqli_get_host_info ($link). PHP_EOL;
-
-mysqli_close ($link);
-?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -83,6 +53,44 @@ mysqli_close ($link);
       <section id="main_content">
         <h3>
 <a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+<br>
+<br>
+<br>
+<?php
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
+
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb")== 0) {
+        continuar;
+    }
+    
+    $connectstr_dbhost = preg_replace ("/^.* Fuente de datos = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbname = preg_replace ("/^.* Database = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbusername = preg_replace ("/^.* User Id = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbpassword = preg_replace ("/^.* Contraseña = (. +?) $ /", "\\ 1", $valor);
+}
+
+$link = mysqli_connect ($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
+
+if (!$link) {
+    echo "Error: no se puede conectar a MySQL". PHP_EOL;
+    echo "Depuración errno:". mysqli_connect_errno (). PHP_EOL;
+    echo "Error de depuración:". mysqli_connect_error (). PHP_EOL;
+    salida;
+}
+
+echo "Éxito: ¡se realizó una conexión adecuada con MySQL! La base de datos my_db es excelente". PHP_EOL;
+echo "Información del host:". mysqli_get_host_info ($link). PHP_EOL;
+
+mysqli_close ($link);
+?>
+<br>
+<br>
+<br>
+<br>
 
 <p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here <a href="https://guides.github.com/features/mastering-markdown/">using GitHub Flavored Markdown</a>, select a template crafted by a designer, and publish. After your page is generated, you can check out the new <code>gh-pages</code> branch locally. If you’re using GitHub Desktop, simply sync your repository and you’ll see the new branch.
 
