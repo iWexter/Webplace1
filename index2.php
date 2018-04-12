@@ -81,7 +81,16 @@ if (!$link) {
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
 }
-
+$sql = "SELECT * FROM usuarios";
+$result = $link->query($sql);
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+      echo "id: " . $row["id_usuario"]. " - Name: " . $row["usu_nombrecompleto"]. " <br>";
+  }
+} else {
+  echo "0 results";
+}
 //echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
 //echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
 echo "$connectstr_dbname";
