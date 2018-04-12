@@ -1,16 +1,33 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
+$connectstr_dbhost = '';
+$connectstr_dbname = '';
+$connectstr_dbusername = '';
+$connectstr_dbpassword = '';
 
-// Create connection
-$conn = mysqli_connect($servername, $username, $password);
-
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+foreach ($_SERVER as $key => $value) {
+    if (strpos($key, "MYSQLCONNSTR_localdb")== 0) {
+        continuar;
+    }
+    
+    $connectstr_dbhost = preg_replace ("/^.* Fuente de datos = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbname = preg_replace ("/^.* Database = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbusername = preg_replace ("/^.* User Id = (. +?);. * $ /", "\\ 1", $value);
+    $connectstr_dbpassword = preg_replace ("/^.* Contraseña = (. +?) $ /", "\\ 1", $valor);
 }
-echo "Connected successfully";
+
+$link = mysqli_connect ($connectstr_dbhost, $connectstr_dbusername, $connectstr_dbpassword, $connectstr_dbname);
+
+if (!$link) {
+    echo "Error: no se puede conectar a MySQL". PHP_EOL;
+    echo "Depuración errno:". mysqli_connect_errno (). PHP_EOL;
+    echo "Error de depuración:". mysqli_connect_error (). PHP_EOL;
+    salida;
+}
+
+echo "Éxito: ¡se realizó una conexión adecuada con MySQL! La base de datos my_db es excelente". PHP_EOL;
+echo "Información del host:". mysqli_get_host_info ($link). PHP_EOL;
+
+mysqli_close ($link);
 ?>
 <!DOCTYPE html>
 <html>
