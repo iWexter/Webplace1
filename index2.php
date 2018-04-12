@@ -82,9 +82,9 @@ if (!$link) {
     exit;
 }
 
-echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
-echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
-echo "$connectstr_dbpassword";
+//echo "Success: A proper connection to MySQL was made! The my_db database is great." . PHP_EOL;
+//echo "Host information: " . mysqli_get_host_info($link) . PHP_EOL;
+echo "$connectstr_dbname";
 
 mysqli_close($link);
 ?>
