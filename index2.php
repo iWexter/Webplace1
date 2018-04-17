@@ -18,7 +18,7 @@
         $('#main_content').headsmart()
       })
     </script>
-    <title>Bitso VS6 by iWexter </title>
+    <title>Bitso VS6 by iWexter</title>
   </head>
 
   <body>
