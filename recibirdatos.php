@@ -1,7 +1,6 @@
 <?php
-
-$chipid = 1;
-$humedad = 2;
+$chipid =  $_POST["chipid"];
+$humedad = $_POST["humedad"];
 
 $connectstr_dbhost = '';
 $connectstr_dbname = '';
