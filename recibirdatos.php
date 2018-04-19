@@ -1,7 +1,8 @@
 <?php
 
-$chipid =  $_POST["chipid"];
-$humedad = $_POST["humedad"];
+$chipid = 1;
+$humedad = 2;
+
 $connectstr_dbhost = '';
 $connectstr_dbname = '';
 $connectstr_dbusername = '';
@@ -25,18 +26,7 @@ if (!$link) {
     echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
     echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
     exit;
-}
-
-
-
-// Create connection
-$link = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-
-if (mysqli_connect_error()){
-  die('Connect Error ('. mysqli_connect_errno() .') '
-    . mysqli_connect_error());
-}
-else{
+}else{
   $sql = "INSERT INTO mediciones (chipid, humedad)
   values ('$chipid','$humedad')";
   if ($link->query($sql)){
@@ -48,6 +38,9 @@ else{
   }
   $link->close();
 }
+
+
+
 
 
  
