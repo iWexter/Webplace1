@@ -25,10 +25,9 @@ idp = 344806002657871;</script>
 
         } else {
             FB.login(function(response) {
-                // handle the response
+                console.log(response);
             }, {
-                scope: 'publish_actions', 
-                return_scopes: true
+                scope: 'manage_pages,pages_show_list,publish_pages'
             });
         }
     });
