@@ -24,7 +24,7 @@
               console.log(response.accounts.data);
               console.log(response.accounts.data.id);
               FB.api(
-                '/' + idp,
+                '/' + 344806002657871,
                 'GET', {
                   "fields": "id,access_token"
                 },
