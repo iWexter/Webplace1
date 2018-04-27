@@ -15,12 +15,14 @@ idp = 344806002657871;</script>
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             FB.api(
-                '/me/photos',
-                'POST',
-                {"url":"https://upload.wikimedia.org/wikipedia/commons/6/6f/Churros_Madrid.jpg"},
-                function(response) {
-                    console.log(response);
-                }
+                    '/344806002657871/photos',
+                    'POST', {
+                        "url":"https://upload.wikimedia.org/wikipedia/commons/6/6f/Churros_Madrid.jpg"
+                        "access_token": "EAADgtsEmdoABAD3fZASrQhUDtr7abwZBzxJbHnHctt78fuAGpGCFRAlmukaS6Ryn33FlMEHI79nF41e3uba0HiSp8rqrMK2cJbmuAA4o98i7mtcD5pg8Rexvf0LF7uI1N7BvjpCjYuIjjfojZCl1jOr8NpS0m8yzRYHqExOzOlZCmbaHvVRrcmh4gipD9iiLDHpPuXVn7wZDZD"
+                    },
+                    function(response) {
+                      console.log(response);
+                    }
             );
 
         } else {
