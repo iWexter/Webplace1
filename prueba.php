@@ -21,7 +21,7 @@ idp = 344806002657871;</script>
                 'POST',
                 {"url":"https://upload.wikimedia.org/wikipedia/commons/6/6f/Churros_Madrid.jpg"},
                 function(response) {
-                    // Insert your code here
+                    console.log(response);
                 }
             );
 
