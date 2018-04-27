@@ -1,4 +1,5 @@
-
+<script>
+idp = </script>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -24,7 +25,7 @@
               console.log(response.accounts.data);
               console.log(response.accounts.data.id);
               FB.api(
-                '/' + 344806002657871,
+                '/' + idp,
                 'GET', {
                   "fields": "id,access_token"
                 },
