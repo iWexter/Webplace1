@@ -27,8 +27,8 @@ idp = 344806002657871;</script>
           FB.login(function(response) {
             // handle the response
           }, {
-            scope: 'manage_pages,pages_show_list,publish_pages,publish_actions'
-          });
+            scope: 'ads_management, pages_manage_instant_articles, publish_pages, ads_read, pages_messaging, read_page_mailboxes, business_management, pages_messaging_phone_number, user_events, manage_pages, pages_messaging_subscriptions, user_managed_groups, pages_manage_cta, pages_show_list '
+            });
         }
     });
       
