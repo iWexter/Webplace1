@@ -11,9 +11,7 @@ idp = 344806002657871;</script>
       
     FB.AppEvents.logPageView();
     
-    FB.getLoginStatus(function(response) {
-        console.log(response);
-    });
+    
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             FB.api(
